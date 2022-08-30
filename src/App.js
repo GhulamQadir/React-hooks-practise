@@ -10,11 +10,12 @@ function App() {
   const [previousVal, setPreviousVal] = useState()
   const [count, setCount] = useState(0)
 
-
-
-
   // Using useState with array
-  const [progLanguages, setProgLanguages] = useState()
+  const [language, setLanguage] = useState([])
+  const [languages, setLanguages] = useState([])
+
+
+
 
 
 
@@ -49,6 +50,14 @@ function App() {
 
 
 
+  // useState with array of objects
+  function addLanguage() {
+    setLanguages([...languages, { language }])     // getting languages array and adding new language in an array
+    setLanguage("")
+  }
+
+
+
   return (
     <div style={{ textAlign: "center" }}>
       <p>useState example 1</p>
@@ -73,6 +82,21 @@ function App() {
 
 
 
+
+      {/* (useState) with array of objects */}
+      <h1>Add Your Favourite Languages</h1>
+      <br />
+      <input type="text" value={language} placeholder='add lang'
+        onChange={(e) => {
+          setLanguage(e.target.value)
+        }} />
+
+      <button onClick={addLanguage}>Add lang</button>
+      <br />
+      <br />
+      {languages.map((value, index) => {
+        return <h2 key={index}>{`${index + 1}: ${value.language}`}</h2>
+      })}
 
     </div>
   )
