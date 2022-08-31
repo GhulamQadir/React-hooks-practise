@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import './App.css'
+import UseEffectExampleComponent from './hooks/useEffectExample';
 
 
 
@@ -69,7 +70,7 @@ function App() {
 
 
       {/*                         Counter App with (useState)                    */}
-      <h1>Counter App</h1>
+      {/* <h1>Counter App</h1>
       <h2>Count: {count}</h2>
       <button onClick={increment}>Increment</button>
       <button disabled={count === 0} onClick={decrement}>Decrement</button>
@@ -77,7 +78,7 @@ function App() {
       <button onClick={undo}>Undo</button>
       <hr />
       <br />
-      <br />
+      <br /> */}
 
 
 
@@ -97,7 +98,16 @@ function App() {
       {languages.map((value, index) => {
         return <h2 key={index}>{`${index + 1}: ${value.language}`}</h2>
       })}
+      <hr />
+      <br />
+      <br />
+      <br />
 
+
+
+      {/*               UseState Example Component                   */}
+      <button onClick={() => setBool(!bool)} className='useEffect_comp_btn'>Show (useEffect) example component</button>
+      {bool ? <UseEffectExampleComponent /> : ""}
     </div>
   )
 }
