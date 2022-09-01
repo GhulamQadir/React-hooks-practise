@@ -11,6 +11,8 @@ function App() {
   const [previousVal, setPreviousVal] = useState()
   const [count, setCount] = useState(0)
 
+
+
   // Using useState with array
   const [language, setLanguage] = useState([])
   const [languages, setLanguages] = useState([])
@@ -61,8 +63,11 @@ function App() {
 
   return (
     <div style={{ textAlign: "center" }}>
+      <h1>React Hooks</h1>
+      <br />
+      <br />
       <p>useState example 1</p>
-      <h1>My name is {bool ? name : ""}</h1>
+      <h2>My name is {bool ? name : ""}</h2>
       <button onClick={changeName}>Change Name</button>
       <hr />
       <br />
@@ -85,7 +90,7 @@ function App() {
 
 
       {/* (useState) with array of objects */}
-      <h1>Add Your Favourite Languages</h1>
+      {/* <h1>Add Your Favourite Languages</h1>
       <br />
       <input type="text" value={language} placeholder='add lang'
         onChange={(e) => {
@@ -101,7 +106,7 @@ function App() {
       <hr />
       <br />
       <br />
-      <br />
+      <br /> */}
 
 
 

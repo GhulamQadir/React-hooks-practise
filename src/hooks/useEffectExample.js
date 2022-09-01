@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 
 function UseEffectExampleComponent() {
 
+    const [name, setName] = useState("Ghulam Qadir")
     const [time, setTime] = useState()
     const [bool, setBool] = useState(false)
 
@@ -20,28 +21,50 @@ function UseEffectExampleComponent() {
     }
 
 
-
+    // Runs only when time updated
     useEffect(() => {
-        console.log("Component Updated")
         const interval = setInterval(showDate)
+        console.log("I will run only when time updated")
 
         if (!bool) {
             clearInterval(interval)
         }
 
         return () => {
-            console.log("Clean Up interval!")
+            // Used for hiding time
             clearInterval(interval)
         }
-    },
-        [time]      // if we pass an empty array, then it runs only when the component renders
-    )
+    }, [time])
+
+
+
+    // Run on Every Render
+    useEffect(() => {
+        console.log("I will run on every render")
+
+    })
+
+    useEffect(() => {
+        console.log("I will run only on first render")
+        // if we pass an empty array, then it runs only when the component renders
+    }, [])
+
+
+    useEffect(() => {
+        return () => {
+            console.log("Unmount")
+        }
+    })
+
     return (
         <div>
             <h1>Use Effect Component</h1>
             <p>{time}</p>
             <button onClick={bool ? hideDate : showDate}>{bool ? "Hide Date" : "Show Date"}</button>
-        </div>
+            <br />
+            <h2>{name}</h2>
+            <button onClick={() => setName("Ghulam Qadir Sakaria")}> Update Name</button>
+        </div >
     )
 }
 export default UseEffectExampleComponent;
